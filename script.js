@@ -43,9 +43,19 @@ function finalizar() {
         let menor = valores[0]
         let soma = 0
         let media = 0
+        let numPar = 0
+        let numImpar = 0
         for (let pos in valores) {
             soma += valores[pos]
             media = soma/total
+            
+            if (valores[pos] % 2 == 0) {
+                numPar += 1
+            } 
+
+            if (valores[pos] % 2 == 1) {
+                numImpar += 1
+            }
 
             if (valores[pos] > maior) {
                 maior = valores[pos]
@@ -59,6 +69,8 @@ function finalizar() {
         res.innerHTML += `O maior valor cadastrado é ${maior}<br>`
         res.innerHTML += `O menor valor cadastrado é ${menor}<br>`
         res.innerHTML += `A soma de todos os valores cadastrados é ${soma}<br>`
-        res.innerHTML += `A média de todos os valores cadastrados é ${parseFloat(media)}`
+        res.innerHTML += `A média de todos os valores cadastrados é ${parseFloat(media)}<br>`
+        res.innerHTML += `O total de números "Pares" é de ${numPar}<br>`
+        res.innerHTML += `O total de números "Ímpares" é de ${numImpar}`
     }
 }
